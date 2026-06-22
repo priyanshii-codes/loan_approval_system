@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Dashboard</title>
+  <link rel="icon" type="image/png" href="data/bank.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <h1>Loan Approval System</h1>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="eligibility.html">Eligibility Checker</a>
+      <a href="explorer.html">Statistics Explorer</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h2>Loan Approval Dashboard</h2>
+
+    <!-- Summary cards -->
+    <section class="cards">
+      <div class="card">
+        <h3>Total Applicants</h3>
+        <p id="totalApplicants">0</p>
+      </div>
+      <div class="card">
+        <h3>Approved Loans</h3>
+        <p id="approvedLoans">0</p>
+      </div>
+      <div class="card">
+        <h3>Rejected Loans</h3>
+        <p id="rejectedLoans">0</p>
+      </div>
+      <div class="card">
+        <h3>Average Income</h3>
+        <p id="avgIncome">0</p>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters">
+      <input type="text" id="searchInput" placeholder="Search by name..." />
+      <select id="cityFilter">
+        <option value="">All Cities</option>
+      </select>
+      <select id="statusFilter">
+        <option value="">All Status</option>
+        <option value="true">Approved</option>
+        <option value="false">Rejected</option>
+      </select>
+      <select id="sortBy">
+        <option value="">Sort By</option>
+        <option value="income">Income</option>
+        <option value="credit_score">Credit Score</option>
+        <option value="loan_amount">Loan Amount</option>
+      </select>
+      <button id="resetFilters">Reset Filters</button>
+    </section>
+
+    <!-- Table -->
+    <section class="table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Income</th>
+            <th>Credit Score</th>
+            <th>Loan Amount</th>
+            <th>Years Employed</th>
+            <th>Points</th>
+            <th>Approved</th>
+          </tr>
+        </thead>
+        <tbody id="loanTableBody"></tbody>
+      </table>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts">
+      <div class="chart-card">
+        <canvas id="approvalChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <canvas id="incomeChart"></canvas>
+      </div>
+      <div class="chart-card">
+  <canvas id="creditScoreChart"></canvas>
+</div>
+    </section>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
